@@ -93,8 +93,7 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
   }
 
   //Funcion para el descuento
-  function aplicarDescuento(precioTotal) {
-    const cantidadProductosComprados = videojuegosComprados.length;
+  function aplicarDescuento(precioTotal, cantidadProductosComprados) {
     if (cantidadProductosComprados >= 3) {
       const descuento = precioTotal * 0.1; // 10% de descuento
       return precioTotal - descuento;
@@ -321,6 +320,8 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
 
   //Funcion de cliente (Aunque se llama comprarVideojuego es el menu del Cliente)
   function comprarVideojuegos() {
+    let precioTotal = 0;
+    let cantidadProductosComprados = 0;
     let bienvenida = "¡Bienvenido/a a la Tienda de Nintendo!\nSi compra 3 o mas productos tendra un descuento del 10%";
     let mensajeCategorias = "\n\rSeleccione una categoría de productos:\n\r1. Videojuegos\n2. Amiibos\n3. Consolas\n4. Peluches\n";
 
@@ -332,6 +333,7 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
 
     let listaProductos;
     let mensajeProductos;
+    
 
     switch (categoriaElegida) {
       case 1:
@@ -367,46 +369,59 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
 
     if (!nombreCliente) {
       nombreCliente = prompt("Ingrese su nombre:");
+      while (nombreCliente && !/^[a-zA-Z]+$/.test(nombreCliente)) {
+        nombreCliente = prompt("¡Error! Ingrese un nombre válido:");
+      }
     }
 
     let cantidadProductos = parseInt(prompt("Ingrese la cantidad de productos que desea comprar:"));
 
-    while (cantidadProductos < 1 || cantidadProductos > listaProductos.length) {
+    while (isNaN(cantidadProductos) || cantidadProductos < 1 || cantidadProductos > listaProductos.length) {
       cantidadProductos = parseInt(prompt("Cantidad inválida. Ingrese la cantidad de productos que desea comprar:"));
     }
-
+  
     for (let i = 0; i < cantidadProductos; i++) {
       let numeroProducto = parseInt(prompt(`Ingrese el número del producto: \n\n${mensajeProductos}`));
-      while (numeroProducto < 1 || numeroProducto > listaProductos.length) {
+      while (isNaN(numeroProducto) || numeroProducto < 1 || numeroProducto > listaProductos.length) {
         numeroProducto = parseInt(prompt(`Número inválido. Ingrese el número del producto #${i + 1}:\n\n${mensajeProductos}`));
       }
       let producto = listaProductos[numeroProducto - 1];
-
+      let cantidadDeseada = parseInt(prompt(`Ingrese la cantidad deseada de "${producto.nombre}":`));
+  
+      while (isNaN(cantidadDeseada) || cantidadDeseada < 1) {
+        cantidadDeseada = parseInt(prompt(`Cantidad inválida. Ingrese la cantidad deseada de "${producto.nombre}":`));
+      }
+  
       let productoDuplicado = false;
       for (let j = 0; j < videojuegosComprados.length; j++) {
         if (videojuegosComprados[j].nombre === producto.nombre) {
+          videojuegosComprados[j].cantidad += cantidadDeseada;
           productoDuplicado = true;
           break;
         }
       }
-
-      if (productoDuplicado) {
-        alert("¡Error! Ya has comprado ese producto.");
-        i--;
-      } else {
+  
+      if (!productoDuplicado) {
+        producto.cantidad = cantidadDeseada;
         videojuegosComprados.push(producto);
       }
+
+      cantidadProductosComprados += cantidadDeseada;
     }
 
+    for (let producto of videojuegosComprados) {
+      precioTotal += producto.precio * producto.cantidad;
+    }
+
+
     //Menu final del Cliente para mostrar resumen de compra 
-    let precioTotal = 0;
+    const precioTotalConDescuento = aplicarDescuento(precioTotal, cantidadProductosComprados);
+
     let mensajeCompra = `Productos comprados por ${nombreCliente}:\n\n`;
     for (let i = 0; i < videojuegosComprados.length; i++) {
       let producto = videojuegosComprados[i];
-      precioTotal += producto.precio;
-      mensajeCompra += `${i + 1}. ${producto.nombre} - $${producto.precio}\n`;
+      mensajeCompra += `${i + 1}. ${producto.nombre} - Cantidad: ${producto.cantidad} - $${producto.precio * producto.cantidad}\n`;
     }
-    const precioTotalConDescuento = aplicarDescuento(precioTotal);
     mensajeCompra += `\nPrecio total: $${precioTotal}`;
     if (precioTotalConDescuento !== precioTotal) {
       mensajeCompra += `\nPrecio total (con descuento): $${precioTotalConDescuento}`;
