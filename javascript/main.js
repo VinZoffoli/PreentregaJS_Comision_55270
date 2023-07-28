@@ -195,13 +195,22 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
   function agregarProducto(listaProductos) {
     while (true) {
       let nombreProducto = prompt("Ingrese el nombre del producto a agregar:");
-
-      let precioProducto = parseInt(prompt("Ingrese el precio del producto:"));
-
+      let precioProducto = null;
+  
+      while (precioProducto === null) {
+        let precioIngresado = prompt("Ingrese el precio del producto:");
+        precioProducto = parseFloat(precioIngresado);
+  
+        if (isNaN(precioProducto)) {
+          alert("El precio ingresado no es válido. Por favor, ingrese un número.");
+          precioProducto = null;
+        }
+      }
+  
       listaProductos.push({ nombre: nombreProducto, precio: precioProducto });
-
+  
       alert("¡Producto agregado exitosamente!");
-
+  
       let opcion = prompt("¿Desea agregar otro producto?\n\r1. Sí\n2. Volver al menú principal del Administrador");
       if (opcion !== "1") {
         return;
