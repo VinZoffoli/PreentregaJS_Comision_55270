@@ -10,9 +10,13 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
     { nombre: "Pokémon Sword", precio: 5100 },
     { nombre: "Fire Emblem: Three Houses", precio: 5400 },
     { nombre: "Luigi's Mansion 3", precio: 5200 },
-    { nombre: "Super Mario Party", precio: 4700 }
+    { nombre: "Super Mario Party", precio: 4700 },
+    { nombre: "New Super Mario Bros. U Deluxe", precio: 4600 },
+    { nombre: "The Legend of Zelda: Skyward Sword HD", precio: 5300 },
+    { nombre: "Super Mario 3D World + Bowser's Fury", precio: 5800 },
+    { nombre: "Pokémon Brilliant Diamond", precio: 5000 },
+    { nombre: "Metroid Dread", precio: 5600 }
   ];
-
   //Amiibos de Nintendo
   const amiibosNintendo = [
     { nombre: "Mario", precio: 1500 },
@@ -24,9 +28,13 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
     { nombre: "Kirby", precio: 1400 },
     { nombre: "Fox McCloud", precio: 1700 },
     { nombre: "Pikachu", precio: 1500 },
-    { nombre: "Luigi", precio: 1600 }
+    { nombre: "Luigi", precio: 1600 },
+    { nombre: "Isabelle", precio: 1200 },
+    { nombre: "Mega Man", precio: 1300 },
+    { nombre: "Inkling", precio: 1100 },
+    { nombre: "Sonic", precio: 1400 },
+    { nombre: "Rosalina", precio: 1300 }
   ];
-
   //Consolas de Nintendo
   const consolasNintendo = [
     { nombre: "Nintendo Switch", precio: 15000 },
@@ -38,9 +46,13 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
     { nombre: "Nintendo GameCube", precio: 5000 },
     { nombre: "Nintendo 64", precio: 3000 },
     { nombre: "Super Nintendo (SNES)", precio: 2500 },
-    { nombre: "Nintendo Entertainment System (NES)", precio: 2000 }
+    { nombre: "Nintendo Entertainment System (NES)", precio: 2000 },
+    { nombre: "Game Boy Color", precio: 5000 },
+    { nombre: "Nintendo DS Lite", precio: 7000 },
+    { nombre: "Nintendo Switch OLED White", precio: 19000 },
+    { nombre: "Nintendo Switch OLED Red/Blue", precio: 19000 },
+    { nombre: "Nintendo Game & Watch: The Legend of Zelda", precio: 6000 }
   ];
-
   //Peluches de Nintendo
   const peluchesNintendo = [
     { nombre: "Mario", precio: 800 },
@@ -52,7 +64,12 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
     { nombre: "Luigi", precio: 900 },
     { nombre: "Jigglypuff", precio: 1000 },
     { nombre: "Toad", precio: 800 },
-    { nombre: "Donkey Kong", precio: 900 }
+    { nombre: "Donkey Kong", precio: 900 },
+    { nombre: "Wario", precio: 1000 },
+    { nombre: "Diddy Kong", precio: 800 },
+    { nombre: "R.O.B.", precio: 1200 },
+    { nombre: "Captain Falcon", precio: 900 },
+    { nombre: "Ness", precio: 1000 }
   ];
 
   //Funcion para producto destacado utilizando Math.random y Math.floor
