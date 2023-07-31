@@ -1,95 +1,101 @@
-function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
-  //Videojuegos de Nintendo
-  const videojuegos = [
-    { nombre: "Super Mario Odyssey", precio: 5000 },
-    { nombre: "The Legend of Zelda: Breath of the Wild", precio: 5500 },
-    { nombre: "Mario Kart 8 Deluxe", precio: 4800 },
-    { nombre: "Splatoon 2", precio: 5200 },
-    { nombre: "Animal Crossing: New Horizons", precio: 5300 },
-    { nombre: "Super Smash Bros. Ultimate", precio: 4900 },
-    { nombre: "Pokémon Sword", precio: 5100 },
-    { nombre: "Fire Emblem: Three Houses", precio: 5400 },
-    { nombre: "Luigi's Mansion 3", precio: 5200 },
-    { nombre: "Super Mario Party", precio: 4700 },
-    { nombre: "New Super Mario Bros. U Deluxe", precio: 4600 },
-    { nombre: "The Legend of Zelda: Skyward Sword HD", precio: 5300 },
-    { nombre: "Super Mario 3D World + Bowser's Fury", precio: 5800 },
-    { nombre: "Pokémon Brilliant Diamond", precio: 5000 },
-    { nombre: "Metroid Dread", precio: 5600 }
-  ];
-  //Amiibos de Nintendo
-  const amiibosNintendo = [
-    { nombre: "Mario", precio: 1500 },
-    { nombre: "Link", precio: 1600 },
-    { nombre: "Princess Peach", precio: 1700 },
-    { nombre: "Yoshi", precio: 1400 },
-    { nombre: "Donkey Kong", precio: 1600 },
-    { nombre: "Samus Aran", precio: 1800 },
-    { nombre: "Kirby", precio: 1400 },
-    { nombre: "Fox McCloud", precio: 1700 },
-    { nombre: "Pikachu", precio: 1500 },
-    { nombre: "Luigi", precio: 1600 },
-    { nombre: "Isabelle", precio: 1200 },
-    { nombre: "Mega Man", precio: 1300 },
-    { nombre: "Inkling", precio: 1100 },
-    { nombre: "Sonic", precio: 1400 },
-    { nombre: "Rosalina", precio: 1300 }
-  ];
-  //Consolas de Nintendo
-  const consolasNintendo = [
-    { nombre: "Nintendo Switch", precio: 15000 },
-    { nombre: "Nintendo Switch Lite", precio: 12000 },
-    { nombre: "Nintendo 2DS", precio: 8000 },
-    { nombre: "Nintendo 3DS", precio: 10000 },
-    { nombre: "Nintendo Switch OLED", precio: 18000 },
-    { nombre: "Nintendo Wii U", precio: 6000 },
-    { nombre: "Nintendo GameCube", precio: 5000 },
-    { nombre: "Nintendo 64", precio: 3000 },
-    { nombre: "Super Nintendo (SNES)", precio: 2500 },
-    { nombre: "Nintendo Entertainment System (NES)", precio: 2000 },
-    { nombre: "Game Boy Color", precio: 5000 },
-    { nombre: "Nintendo DS Lite", precio: 7000 },
-    { nombre: "Nintendo Switch OLED White", precio: 19000 },
-    { nombre: "Nintendo Switch OLED Red/Blue", precio: 19000 },
-    { nombre: "Nintendo Game & Watch: The Legend of Zelda", precio: 6000 }
-  ];
-  //Peluches de Nintendo
-  const peluchesNintendo = [
-    { nombre: "Mario", precio: 800 },
-    { nombre: "Yoshi", precio: 900 },
-    { nombre: "Princess Peach", precio: 1000 },
-    { nombre: "Link", precio: 900 },
-    { nombre: "Kirby", precio: 800 },
-    { nombre: "Pikachu", precio: 1000 },
-    { nombre: "Luigi", precio: 900 },
-    { nombre: "Jigglypuff", precio: 1000 },
-    { nombre: "Toad", precio: 800 },
-    { nombre: "Donkey Kong", precio: 900 },
-    { nombre: "Wario", precio: 1000 },
-    { nombre: "Diddy Kong", precio: 800 },
-    { nombre: "R.O.B.", precio: 1200 },
-    { nombre: "Captain Falcon", precio: 900 },
-    { nombre: "Ness", precio: 1000 }
-  ];
+class Producto {
+  constructor(nombre, precio) {
+    this.nombre = nombre;
+    this.precio = precio;
+  }
+}
+
+class ProductoTCG extends Producto {}
+
+const videojuegos = [
+  new Producto("Super Mario Odyssey", 5000),
+  new Producto("The Legend of Zelda: Breath of the Wild", 5500),
+  new Producto("Mario Kart 8 Deluxe", 4800),
+  new Producto("Splatoon 2", 5200),
+  new Producto("Animal Crossing: New Horizons", 5300),
+  new Producto("Super Smash Bros. Ultimate", 4900),
+  new Producto("Pokémon Sword", 5100),
+  new Producto("Fire Emblem: Three Houses", 5400),
+  new Producto("Luigi's Mansion 3", 5200),
+  new Producto("Super Mario Party", 4700),
+  new Producto("New Super Mario Bros. U Deluxe", 4600),
+  new Producto("The Legend of Zelda: Skyward Sword HD", 5300),
+  new Producto("Super Mario 3D World + Bowser's Fury", 5800),
+  new Producto("Pokémon Brilliant Diamond", 5000),
+  new Producto("Metroid Dread", 5600),
+];
+
+const amiibosNintendo = [
+  new Producto("Mario", 1500),
+  new Producto("Link", 1600),
+  new Producto("Princess Peach", 1700),
+  new Producto("Yoshi", 1400),
+  new Producto("Donkey Kong", 1600),
+  new Producto("Samus Aran", 1800),
+  new Producto("Kirby", 1400),
+  new Producto("Fox McCloud", 1700),
+  new Producto("Pikachu", 1500),
+  new Producto("Luigi", 1600),
+  new Producto("Isabelle", 1200),
+  new Producto("Mega Man", 1300),
+  new Producto("Inkling", 1100),
+  new Producto("Sonic", 1400),
+  new Producto("Rosalina", 1300),
+];
+
+const consolasNintendo = [
+  new Producto("Nintendo Switch", 15000),
+  new Producto("Nintendo Switch Lite", 12000),
+  new Producto("Nintendo 2DS", 8000),
+  new Producto("Nintendo 3DS", 10000),
+  new Producto("Nintendo Switch OLED", 18000),
+  new Producto("Nintendo Wii U", 6000),
+  new Producto("Nintendo GameCube", 5000),
+  new Producto("Nintendo 64", 3000),
+  new Producto("Super Nintendo (SNES)", 2500),
+  new Producto("Nintendo Entertainment System (NES)", 2000),
+  new Producto("Game Boy Color", 5000),
+  new Producto("Nintendo DS Lite", 7000),
+  new Producto("Nintendo Switch OLED White", 19000),
+  new Producto("Nintendo Switch OLED Red/Blue", 19000),
+  new Producto("Nintendo Game & Watch: The Legend of Zelda", 6000),
+];
+
+const peluchesNintendo = [
+  new Producto("Mario", 800),
+  new Producto("Yoshi", 900),
+  new Producto("Princess Peach", 1000),
+  new Producto("Link", 900),
+  new Producto("Kirby", 800),
+  new Producto("Pikachu", 1000),
+  new Producto("Luigi", 900),
+  new Producto("Jigglypuff", 1000),
+  new Producto("Toad", 800),
+  new Producto("Donkey Kong", 900),
+  new Producto("Wario", 1000),
+  new Producto("Diddy Kong", 800),
+  new Producto("R.O.B.", 1200),
+  new Producto("Captain Falcon", 900),
+  new Producto("Ness", 1000),
+];
+
+let videojuegosComprados = [];
+let nombreCliente = null;
+
 
   //Funcion para producto destacado utilizando Math.random y Math.floor
   function productoDestacadoAleatorio() {
-    let categorias = [videojuegos, amiibosNintendo, consolasNintendo, peluchesNintendo];
-    let categoriaAleatoria = categorias[Math.floor(Math.random() * categorias.length)];
-    let productoAleatorio = categoriaAleatoria[Math.floor(Math.random() * categoriaAleatoria.length)];
+    let categorias = [
+      videojuegos,
+      amiibosNintendo,
+      consolasNintendo,
+      peluchesNintendo,
+    ];
+    let categoriaAleatoria =
+      categorias[Math.floor(Math.random() * categorias.length)];
+    let productoAleatorio =
+      categoriaAleatoria[Math.floor(Math.random() * categoriaAleatoria.length)];
     return productoAleatorio;
-  }
-
-  //Función para la fecha y hora actual
-  function FechaHoraActual() {
-    const fechaHoraActual = new Date();
-    const dia = fechaHoraActual.getDate();
-    const mes = fechaHoraActual.getMonth() + 1;
-    const año = fechaHoraActual.getFullYear();
-    const hora = fechaHoraActual.getHours();
-    const minutos = fechaHoraActual.getMinutes();
-
-    return `${dia}/${mes}/${año} ${hora}:${minutos}`;
   }
 
   //Funcion para el descuento
@@ -105,7 +111,9 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
   // Login
   function login() {
     while (true) {
-      let opcionLogin = prompt("Seleccione una opción:\n\r1. Administrador\n2. Cliente\n3. Salir del programa");
+      let opcionLogin = prompt(
+        "Seleccione una opción:\n\r1. Administrador\n2. Cliente\n3. Salir del programa"
+      );
 
       switch (opcionLogin) {
         case "1":
@@ -139,7 +147,9 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
     alert("¡Bienvenido/a Administrador/a!");
 
     while (true) {
-      let opcionAdmin = prompt("Seleccione una opción:\n\r1. Agregar productos\n2. Eliminar productos\n3. Buscar productos\n4. Volver al menú principal");
+      let opcionAdmin = prompt(
+        "Seleccione una opción:\n\r1. Agregar productos\n2. Eliminar productos\n3. Buscar productos\n4. Volver al menú principal"
+      );
 
       switch (opcionAdmin) {
         case "1":
@@ -166,7 +176,9 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
 
   //Seleccionar categoria para agregar productos
   function agregarProductos() {
-    let tipoProducto = prompt("Ingrese el tipo de producto a agregar:\n\r1. Videojuegos\n2. Amiibos\n3. Consolas\n4. Peluches");
+    let tipoProducto = prompt(
+      "Ingrese el tipo de producto a agregar:\n\r1. Videojuegos\n2. Amiibos\n3. Consolas\n4. Peluches"
+    );
 
     switch (tipoProducto) {
       case "1":
@@ -190,7 +202,7 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
         break;
     }
   }
-  
+
   //Agregar productos en listaProductos
   function agregarProducto(listaProductos) {
     while (true) {
@@ -202,16 +214,20 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
         precioProducto = parseFloat(precioIngresado);
   
         if (isNaN(precioProducto)) {
-          alert("El precio ingresado no es válido. Por favor, ingrese un número.");
+          alert(
+            "El precio ingresado no es válido. Por favor, ingrese un número."
+          );
           precioProducto = null;
         }
       }
   
-      listaProductos.push({ nombre: nombreProducto, precio: precioProducto });
+      listaProductos.push(new Producto(nombreProducto, precioProducto));
   
       alert("¡Producto agregado exitosamente!");
   
-      let opcion = prompt("¿Desea agregar otro producto?\n\r1. Sí\n2. Volver al menú principal del Administrador");
+      let opcion = prompt(
+        "¿Desea agregar otro producto?\n\r1. Sí\n2. Volver al menú principal del Administrador"
+      );
       if (opcion !== "1") {
         return;
       }
@@ -220,7 +236,9 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
 
   //Eliminar productos de listaProductos el cual tiene su informacion relacionada a los Arrays
   function eliminarProductos() {
-    let tipoProducto = prompt("Ingrese el tipo de producto a eliminar:\n\r1. Videojuegos\n2. Amiibos\n3. Consolas\n4. Peluches");
+    let tipoProducto = prompt(
+      "Ingrese el tipo de producto a eliminar:\n\r1. Videojuegos\n2. Amiibos\n3. Consolas\n4. Peluches"
+    );
 
     let listaProductos;
 
@@ -249,12 +267,21 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
     //Listado de productos
     let mensajeProductos = "\nListado de Productos:\n";
     for (let i = 0; i < listaProductos.length; i++) {
-      mensajeProductos += `${i + 1}. ${listaProductos[i].nombre} - $${listaProductos[i].precio}\n`;
+      mensajeProductos += `${i + 1}. ${listaProductos[i].nombre} - $${
+        listaProductos[i].precio
+      }\n`;
     }
 
-    let numeroProductoEliminar = parseInt(prompt(`Seleccione el número del producto que desea eliminar:\n${mensajeProductos}`));
+    let numeroProductoEliminar = parseInt(
+      prompt(
+        `Seleccione el número del producto que desea eliminar:\n${mensajeProductos}`
+      )
+    );
 
-    if (numeroProductoEliminar >= 1 && numeroProductoEliminar <= listaProductos.length) {
+    if (
+      numeroProductoEliminar >= 1 &&
+      numeroProductoEliminar <= listaProductos.length
+    ) {
       listaProductos.splice(numeroProductoEliminar - 1, 1);
       alert("¡Producto eliminado exitosamente!");
     } else {
@@ -264,7 +291,9 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
 
   //Funcion para buscar productos segun el alfabeto o el numero
   function buscarProductos() {
-    let tipoProducto = prompt("Ingrese el tipo de producto a buscar:\n\r1. Videojuegos\n2. Amiibos\n3. Consolas\n4. Peluches");
+    let tipoProducto = prompt(
+      "Ingrese el tipo de producto a buscar:\n\r1. Videojuegos\n2. Amiibos\n3. Consolas\n4. Peluches"
+    );
 
     let listaProductos;
 
@@ -290,12 +319,16 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
         return;
     }
 
-    let opcionBuscar = prompt("Seleccione una opción para buscar productos:\n\r1. Filtrar alfabéticamente\n2. Filtrar por número");
+    let opcionBuscar = prompt(
+      "Seleccione una opción para buscar productos:\n\r1. Filtrar alfabéticamente\n2. Filtrar por número"
+    );
 
     switch (opcionBuscar) {
       case "1":
         let nombreBuscar = prompt("Ingrese el nombre del producto a buscar:");
-        let resultadosNombre = listaProductos.filter(producto => producto.nombre.toLowerCase().includes(nombreBuscar.toLowerCase()));
+        let resultadosNombre = listaProductos.filter((producto) =>
+          producto.nombre.toLowerCase().includes(nombreBuscar.toLowerCase())
+        );
 
         if (resultadosNombre.length === 0) {
           alert("No se encontraron productos con ese nombre.");
@@ -305,9 +338,15 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
         break;
 
       case "2":
-        let numeroBuscar = parseInt(prompt("Ingrese el número del producto a buscar:"));
+        let numeroBuscar = parseInt(
+          prompt("Ingrese el número del producto a buscar:")
+        );
         if (numeroBuscar >= 1 && numeroBuscar <= listaProductos.length) {
-          alert(`Producto encontrado:\n${listaProductos[numeroBuscar - 1].nombre} - $${listaProductos[numeroBuscar - 1].precio}`);
+          alert(
+            `Producto encontrado:\n${
+              listaProductos[numeroBuscar - 1].nombre
+            } - $${listaProductos[numeroBuscar - 1].precio}`
+          );
         } else {
           alert("Número de producto inválido.");
         }
@@ -318,11 +357,13 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
         break;
     }
   }
-  
+
   function mostrarResultados(resultados) {
     let mensajeResultados = "Resultados de la búsqueda:\n";
     for (let i = 0; i < resultados.length; i++) {
-      mensajeResultados += `${i + 1}. ${resultados[i].nombre} - $${resultados[i].precio}\n`;
+      mensajeResultados += `${i + 1}. ${resultados[i].nombre} - $${
+        resultados[i].precio
+      }\n`;
     }
     alert(mensajeResultados);
   }
@@ -331,18 +372,21 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
   function comprarVideojuegos() {
     let precioTotal = 0;
     let cantidadProductosComprados = 0;
-    let bienvenida = "¡Bienvenido/a a la Tienda de Nintendo!\nSi compra 3 o mas productos tendra un descuento del 10%";
-    let mensajeCategorias = "\n\rSeleccione una categoría de productos:\n\r1. Videojuegos\n2. Amiibos\n3. Consolas\n4. Peluches\n";
+    let bienvenida =
+      "¡Bienvenido/a a la Tienda de Nintendo!\nSi compra 3 o mas productos tendra un descuento del 10%";
+    let mensajeCategorias =
+      "\n\rSeleccione una categoría de productos:\n\r1. Videojuegos\n2. Amiibos\n3. Consolas\n4. Peluches\n";
 
     let categoriaElegida = parseInt(prompt(bienvenida + mensajeCategorias));
 
     while (categoriaElegida < 1 || categoriaElegida > 4) {
-      categoriaElegida = parseInt(prompt("Opción inválida. " + mensajeCategorias));
+      categoriaElegida = parseInt(
+        prompt("Opción inválida. " + mensajeCategorias)
+      );
     }
 
     let listaProductos;
     let mensajeProductos;
-    
 
     switch (categoriaElegida) {
       case 1:
@@ -371,7 +415,9 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
     }
 
     for (let i = 0; i < listaProductos.length; i++) {
-      mensajeProductos += `${i + 1}. ${listaProductos[i].nombre} - $${listaProductos[i].precio}\n`;
+      mensajeProductos += `${i + 1}. ${listaProductos[i].nombre} - $${
+        listaProductos[i].precio
+      }\n`;
     }
 
     alert(bienvenida + mensajeProductos);
@@ -382,25 +428,47 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
         nombreCliente = prompt("¡Error! Ingrese un nombre válido:");
       }
     }
-
-    let cantidadProductos = parseInt(prompt("Ingrese la cantidad de productos que desea comprar:"));
-
-    while (isNaN(cantidadProductos) || cantidadProductos < 1 || cantidadProductos > listaProductos.length) {
-      cantidadProductos = parseInt(prompt("Cantidad inválida. Ingrese la cantidad de productos que desea comprar:"));
-    }
   
+    let cantidadProductos = parseInt(
+      prompt("Ingrese la cantidad de productos que desea comprar:")
+    );
+  
+    while (isNaN(cantidadProductos) || cantidadProductos < 1 || cantidadProductos > listaProductos.length) {
+      cantidadProductos = parseInt(
+        prompt("Cantidad inválida. Ingrese la cantidad de productos que desea comprar:")
+      );
+    }
+
     for (let i = 0; i < cantidadProductos; i++) {
-      let numeroProducto = parseInt(prompt(`Ingrese el número del producto: \n\n${mensajeProductos}`));
-      while (isNaN(numeroProducto) || numeroProducto < 1 || numeroProducto > listaProductos.length) {
-        numeroProducto = parseInt(prompt(`Número inválido. Ingrese el número del producto #${i + 1}:\n\n${mensajeProductos}`));
+      let numeroProducto = parseInt(
+        prompt(`Ingrese el número del producto: \n\n${mensajeProductos}`)
+      );
+      while (
+        isNaN(numeroProducto) ||
+        numeroProducto < 1 ||
+        numeroProducto > listaProductos.length
+      ) {
+        numeroProducto = parseInt(
+          prompt(
+            `Número inválido. Ingrese el número del producto #${
+              i + 1
+            }:\n\n${mensajeProductos}`
+          )
+        );
       }
       let producto = listaProductos[numeroProducto - 1];
-      let cantidadDeseada = parseInt(prompt(`Ingrese la cantidad deseada de "${producto.nombre}":`));
-  
+      let cantidadDeseada = parseInt(
+        prompt(`Ingrese la cantidad deseada de "${producto.nombre}":`)
+      );
+
       while (isNaN(cantidadDeseada) || cantidadDeseada < 1) {
-        cantidadDeseada = parseInt(prompt(`Cantidad inválida. Ingrese la cantidad deseada de "${producto.nombre}":`));
+        cantidadDeseada = parseInt(
+          prompt(
+            `Cantidad inválida. Ingrese la cantidad deseada de "${producto.nombre}":`
+          )
+        );
       }
-  
+
       let productoDuplicado = false;
       for (let j = 0; j < videojuegosComprados.length; j++) {
         if (videojuegosComprados[j].nombre === producto.nombre) {
@@ -409,7 +477,7 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
           break;
         }
       }
-  
+
       if (!productoDuplicado) {
         producto.cantidad = cantidadDeseada;
         videojuegosComprados.push(producto);
@@ -422,23 +490,29 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
       precioTotal += producto.precio * producto.cantidad;
     }
 
-
-    //Menu final del Cliente para mostrar resumen de compra 
-    const precioTotalConDescuento = aplicarDescuento(precioTotal, cantidadProductosComprados);
+    //Menu final del Cliente para mostrar resumen de compra
+    const precioTotalConDescuento = aplicarDescuento(
+      precioTotal,
+      cantidadProductosComprados
+    );
 
     let mensajeCompra = `Productos comprados por ${nombreCliente}:\n\n`;
     for (let i = 0; i < videojuegosComprados.length; i++) {
       let producto = videojuegosComprados[i];
-      mensajeCompra += `${i + 1}. ${producto.nombre} - Cantidad: ${producto.cantidad} - $${producto.precio * producto.cantidad}\n`;
+      mensajeCompra += `${i + 1}. ${producto.nombre} - Cantidad: ${
+        producto.cantidad
+      } - $${producto.precio * producto.cantidad}\n`;
     }
     mensajeCompra += `\nPrecio total: $${precioTotal}`;
     if (precioTotalConDescuento !== precioTotal) {
       mensajeCompra += `\nPrecio total (con descuento): $${precioTotalConDescuento}`;
     }
-    mensajeCompra += `\n\rFecha y hora de la compra: ${FechaHoraActual()}`;
+    mensajeCompra += `\n\rFecha y hora de la compra: ${new Date().toLocaleString()}`;
 
     while (true) {
-      let opcion = prompt("Seleccione una opción:\n\r1. Ver el resumen de compra\n2. Agregar más productos\n3. Salir");
+      let opcion = prompt(
+        "Seleccione una opción:\n\r1. Ver el resumen de compra\n2. Agregar más productos\n3. Salir"
+      );
 
       switch (opcion) {
         case "1":
@@ -464,6 +538,3 @@ function procesoCompra(videojuegosComprados = [], nombreCliente = null) {
       }
     }
   }
-}
-
-let mensaje = procesoCompra();
